@@ -1,0 +1,321 @@
+h1 {
+  font-size: 50px;
+  color: red;
+}
+#background-container {
+  z-index: 1;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  background-size: cover !important;
+  position: relative;
+  margin: 0 auto;
+}
+.chatbox-container{
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+#confirmBox {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: #3F3F3F;
+  width: 850px;
+  height: 200px;
+}
+#confirmBox.no_logged_in {
+  display: block;
+}
+.close_btn{
+  z-index: 9;
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+.close_btn:hover{
+  background-color: #91C4CD;
+}
+.close_btn:focus{
+  box-shadow: none !important;
+}
+
+.close_btn_small{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 2%;
+  padding: 5px;
+  top: calc(50%-15px);
+}
+.close_btn_small:focus{
+  box-shadow: none !important;
+}
+.close_btn_small:hover{
+  background-color: #3F3F3F;
+}
+.title-container{
+  width: 100%;
+  height: 50px;
+  background-color: #232323;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-div{
+  color: white;
+  text-align: center;
+  font-size: 19px;
+}
+.info-text{
+  padding-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 19px;
+}
+.action-button-container{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+.action-button-container button, 
+.action-button-container a {
+  width: 130px;
+  background-color: transparent;
+  border: 3px solid #232323;
+  color: white;
+  font-size: 17px;
+  text-decoration: none;
+  padding: 11px 16px;
+  font-weight: 700;
+  text-shadow: none;
+  font-family: Arial,Helvetica,sans-serif;
+  text-align: center;
+}
+.action-button-container button:hover, 
+.action-button-container a:hover{
+  background-color: #232323;
+}
+.confirm-button{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("/local/hugo/assets/media/paper-plane-solid.svg") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+}
+.hugo-ava-container{
+  width: 50%;
+  align-self: end;
+}
+#hugo-avatar{
+  margin: auto;
+  display: block;
+}
+.inner-chatbox-container{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.chat-history-container{
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px 15px;
+}
+.chat-input-container{
+  height: 10%;
+  padding: 0px 15px;
+}
+.chat-input-container .submit-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0px 20px;
+  box-shadow: inset 4px 4px 4px #969796;
+}
+.submit-container .chat_input_btn{
+  width: 80%;
+  height: 55px;
+  font-size: 19px;
+  background-color: transparent;
+  border: none;
+}
+.chat_input_btn:focus-visible{
+  outline: none;
+}
+.submit-container .chat_input_btn:focus{
+  box-shadow: none;
+}
+.chat_input_btn::placeholder{
+  color: #bdbdbd;
+  font-size: 19px;
+}
+.displayUser-container{
+  min-width: 33%;
+  max-width: 49%;
+  height: fit-content;
+  border-radius: 5px;
+  margin: 20px 0px;
+  padding: 10px;
+  box-shadow: 8px 5px 10px #0000008c;
+}
+.displayUser-container.right-container{
+  background-color: #FFFFFF;
+  align-self: end;
+  position: relative;
+}
+.displayUser-container.left-container{
+  background-color: #FFF6AC;
+  align-self: start;
+  position: relative;
+}
+.displayUser-container.left-container.first-child{
+  margin-top: auto;
+}
+.displayUser-container.left-container:before{
+  content: '';
+  width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 15px solid #FFF6AC;
+	position: absolute;
+	bottom: -7px;
+	left: -6px;
+	transform: rotate(60deg);
+}
+.chatbubble.right{
+  width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 15px solid #ffffff;
+	position: absolute;
+	bottom: -7px;
+	right: -6px;
+	transform: rotate(-60deg);
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #474747bf; 
+  opacity: 0.1;
+  margin-top: 50px;
+    margin-bottom: 50px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff8f; 
+  opacity: 1;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
+#input_counter{
+  font-size: 17px;
+  font-weight: 500;
+  color: grey;
+}
+.feedback-container{
+  display: flex;
+  width: 100%;
+  align-items: end;
+  justify-content: end;
+}
+.thumb-down{
+  width: 20px;
+  height: 20px;
+}
+.tooltip-container{
+  position: absolute;
+  visibility: hidden;
+  top: -40px;
+  width: fit-content;
+  white-space: nowrap;
+  height: auto;
+  padding: 8px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 8px 5px 10px #0000008c;
+}
+.thumb-down{
+  cursor: pointer;
+}
+.image-wrapper-container:hover .tooltip-container{
+  visibility: visible;
+}
+.image-wrapper-container{
+  position: relative;
+}
+/*Responsive*/
+
+@media(max-width: 1600px){
+  .chatbox-container .hugo-ava-container{
+    width: 40%;
+  }
+  .chatbox-container .hugo-ava-container img{
+    width: 400px;
+  }
+  .chatbox-container .inner-chatbox-container{
+    width: 50%;
+    }
+  }
+  @media(max-width: 1400px){
+  .chatbox-container .hugo-ava-container{
+    width: 30%;
+  }
+  .chatbox-container .hugo-ava-container img{
+    width: 300px;
+  }
+  .chatbox-container .inner-chatbox-container{
+    width: 60%;
+    }
+  }
+  @media(max-width: 1100px){
+  .chatbox-container .hugo-ava-container{
+    display: none;
+  }
+  
+  .chatbox-container .inner-chatbox-container{
+    width: 90%;
+    margin: 0 auto;
+    }
+    #confirmBox{
+      max-width: 100%;
+    }
+  }
+  @media(max-width: 980px){
+  .chatbox-container .inner-chatbox-container{
+    width: 90%;
+    margin: 0 auto;
+    }
+    .displayUser-container.left-container,
+    .displayUser-container.right-container{
+      width: 90%;
+      max-width: 90%;
+    }
+  }
+

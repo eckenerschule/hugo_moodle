@@ -1,0 +1,64 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_hugo/index
+
+
+    Example context (json):
+    {
+      
+    }
+}}
+
+<body {{{ bodyattributes }}}>
+    {{{ output.standard_top_of_body_html }}}
+    <div id="background-container">
+        <input id="open_confirm_box" class="close_btn" type="image" src="/local/hugo/assets/media/xmark-solid.svg" />
+        <div id="confirmBox" class="{{^isloggedin}}no_logged_in{{/isloggedin}}">
+            <div class="title-container">
+                <div class="title-div">{{ plugin_close }}</div>
+                <input id="close_confirm_box" class="close_btn_small" type="image" src="/local/hugo/assets/media/xmark-solid.svg" />
+            </div>
+            <p class="info-text">{{ close_request }}</p>
+            <div class="action-button-container">
+                <a href="{{redirect}}" id="confirm_close_chat_btn">{{ yes }}</a>
+                <button id="cancel_confirm_box_btn">{{ no }}</button>
+            </div>
+            
+        </div>
+        {{#isloggedin}}
+            <div class="modal-container">
+                <div class="lehrer-head-container">
+                    <input id="close_lehrer" class="close_btn_lehrer" type="image" src="/local/hugo/assets/media/rotate-left-solid.svg" onclick="window.location.href = '{{redirect}}'" />
+                    <div class=" modal-item themenbereich-container">
+                        <h1 class="header">Frag Hugo</h1>
+                        <span class="subheader">Funktionsauswahl</span>
+                    </div>
+                </div>
+                <div class="lehrer-content-container">
+                    <h2>{{ auswahl_lehrer }}</h2>
+                    <div class="auswahl-button-container">
+                        <a id="chatprotokoll_confirm_btn" class="btn btn-primary" href="/local/hugo/lehrer_chats.php">{{ chat }}</a>
+                        <a id="quellen_confirm_box_btn" class="btn btn-primary" href="/local/hugo/lehrer_quellen.php?summary">{{ quellen }}</a>
+                    </div>
+                    
+                </div>
+            </div>
+        {{/isloggedin}}
+        
+    </div>
+

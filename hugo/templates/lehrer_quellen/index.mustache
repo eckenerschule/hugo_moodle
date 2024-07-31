@@ -1,0 +1,108 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_hugo/index
+
+
+    Example context (json):
+    {
+      
+    }
+}}
+
+<body {{{ bodyattributes }}}>
+    {{{ output.standard_top_of_body_html }}}
+    <div id="background-container">
+        <input id="open_confirm_box" class="close_btn" type="image" src="/local/hugo/assets/media/xmark-solid.svg" />
+        <div id="confirmBox" class="{{^isloggedin}}no_logged_in{{/isloggedin}}">
+            <div class="title-container">
+                <div class="title-div">{{ plugin_close }}</div>
+                <input id="close_confirm_box" class="close_btn_small" type="image" src="/local/hugo/assets/media/xmark-solid.svg" />
+            </div>
+            <p class="info-text">{{ close_request }}</p>
+            <div class="action-button-container">
+                <a href="{{redirect}}" id="confirm_close_chat_btn">{{ yes }}</a>
+                <button id="cancel_confirm_box_btn">{{ cancel }}</button>
+            </div>
+            
+        </div>
+        {{#isloggedin}}
+            <div class="modal-container">
+                <div class="lehrer-head-container">
+                    <input id="close_lehrer" class="close_btn_lehrer" type="image" src="/local/hugo/assets/media/rotate-left-solid.svg" onclick="window.location.href = '/local/hugo/lehrer.php'" />
+                    <div class=" modal-item themenbereich-container">
+                        <h1 class="header">Frag Hugo</h1>
+                        <span class="subheader">Funktionsauswahl</span>
+                    </div>
+                </div>
+                <div class="chat-content-container">
+                    <div class="left-wrapper">
+                  <button id="create-source" class="submit-history-btn"> <img id="create-source-img" width="25px" height="25px" src="/local/hugo/assets/media/circle-plus-solid-white.svg">Neue Quelle erstellen</button>
+                    <div id="chat-list-container" class="chat-list-container">
+                        <div id="history-list"></div>
+                    </div>
+                    </div>
+                    <div id="chat-details-container" class="chat-details-container">
+                        <div id="delete-info-container" class="delete-info-container">
+                            <img width="18px" height="18px" src="/local/hugo/assets/media/circle-exclam.svg"><p>Zum Löschen markiert</p>
+                        </div>
+                        <div id="chat-details-wrapper" class="chat-details-wrapper">
+                            <div class="info-text-detailed">Titel</div>
+                            <div id="title-input" class="content-detailed"></div>
+                            <div class="info-text-detailed">Inhalt</div>
+                            <div id="context-input" class="content-detailed-extended"></div>
+                            <div class="info-text-detailed">Quelle</div>
+                            <div id="source-input" class="content-detailed"></div>
+                            <div class="info-text-detailed">Tags</div>
+                            <div id="tags-input"></div>
+                        </div>
+                        <div class="fertigstellen-container">
+                            <button id="soft-delete" class="submit-history-btn">Zum Löschen Markieren</button>
+                        </div>
+                </div>
+                <div id="chat-create-container" class="chat-details-container">
+                    
+                     <div id="chat-details-wrapper" class="chat-details-wrapper">
+                            <div class="info-text-detailed">Titel</div>
+                            <div class="first-wrapper">
+                                <input id="title-input-sources" placeholder="Erstellen Sie einen Titel oder lassen Sie ihn generieren" type="text" class="source-input content-detailed">
+                                <button id="create-title" type="button" class="submit-history-btn create-title">Titel kreieren</button>
+                            </div>
+                            <div class="info-text-detailed">Inhalt</div>
+                            <textarea id="content-input-sources" placeholder="Beschreiben Sie den Inhalt der Quelle" rows="5" class="source-input content-detailed-extended"></textarea>
+                            <div class="info-text-detailed">Quelle</div>
+                            <input id="source-input-sources" type="text" placeholder="Geben Sie die Quelle an" class="source-input content-detailed">
+                            <div class="info-text-detailed">Tags</div>
+                            <div id="tags-input"></div>
+                            <div class="select-container">
+                                <div class="select-wrapper">
+                                    <select id="tag-select" data-placeholder="Tags hinzufügen"></select>                                
+                                </div>
+                                <div class="fertigstellen-container">
+                                    <button id="save-create" class="submit-history-btn" disabled>Speichern</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                </div>
+               
+            </div>
+        {{/isloggedin}}
+        
+    </div>
+
